@@ -1,0 +1,370 @@
+/* File: kbb.scss */
+
+@import url(https://fonts.googleapis.com/css?family=Boogaloo%7CUbuntu:300,500);
+
+// ----------------------------------------------------------------------------
+// SCSS stuff
+// ----------------------------------------------------------------------------
+
+$font-stack-body: Ubuntu, Verdana, sans-serif;
+$font-stack-headers: Boogaloo, Times, serif;
+
+$w3-teal: #009688;
+$w3-teal-d2: #00766a;  // a bit darker
+$w3-teal-d3: #00685d;  // a bit darker still...
+
+$banner-image-fn: 'banner-ninos-1.jpg';
+$banner-image-position: 50% 20%;
+
+@mixin margin-padding($val) {
+    margin: $val;
+    padding: $val;
+}
+
+// ----------------------------------------------------------------------------
+// global stuff
+// ----------------------------------------------------------------------------
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; // somewhere I read that this is "best practice" 
+}
+
+body {
+    font: {
+        family: $font-stack-body;
+        size: 100%;
+        weight: 300;
+    }
+    background-color: #aaa;
+}
+
+h1, h2, h3, h4 {
+    font-family: $font-stack-headers;
+}
+
+// ----- links -----
+
+a {
+    color: #00685d;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p a {
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// ----- blockquotes -----
+
+blockquote {
+    // simulate .w3-panel
+    padding: 0.01em 16px;
+    margin: {
+        top: 16px;
+        bottom: 16px;
+    }
+    // .w3-light-gray
+    background-color: #ddd;
+    // .w3-leftbar w3-teal
+    border-left: 6px solid $w3-teal;
+    
+    cite {
+        font: {
+            style: normal;
+            size: 90%;
+        }
+        color: #666;
+        &::before {
+            content: '— ';
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+// layout
+// ----------------------------------------------------------------------------
+
+#wrapper {
+    max-width: 1000px;
+    background-color: #eee;
+}
+
+// ----------------------------------------------------------------------------
+// footer
+// ----------------------------------------------------------------------------
+
+footer {
+    font-size: smaller;
+    padding: {
+        top: 8px;
+        bottom: 8px;
+    }
+
+    h4 {
+        @include margin-padding(0);
+        background-color: red;
+    }
+    
+    nav {
+        font-weight: normal;
+        
+        ul {
+            list-style-type: none;
+            @include margin-padding(0);
+        }
+    }
+}
+
+#footer-credits span {
+    padding: 0 10px;
+}
+
+#social-media {
+    font-size: 2rem;
+    position: relative;
+    top: -8px;
+    
+    a {
+        margin-right: 5px;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// language toggle
+// ----------------------------------------------------------------------------
+
+#lang-toggle {
+    text-align: right;
+    
+    * {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    
+    .selected {
+        font-weight: bold;
+        cursor: auto;
+    }
+    
+    .w3-btn.selected:hover {
+        box-shadow: none
+    }
+}
+
+// ----------------------------------------------------------------------------
+// primary nav
+// ----------------------------------------------------------------------------
+
+#menu-primary {
+    padding: 0 16px 0 8px; // Override W3.CSS horiz padding between menu items
+    font: {
+        weight: 500;
+        size: 15px;
+    }
+    
+    a {
+        padding: 8px;
+        color: white;
+        
+        &:hover {
+            text-decoration: none;
+            color: white !important;
+            background-color: $w3-teal-d2 !important;
+        }
+        
+        &.selected {
+            background-color: $w3-teal-d3;
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+// prev/next navigation for lists and posts
+// ----------------------------------------------------------------------------
+
+// Override W3.CSS: on 'more' buttons, use less padding and move up a tad
+.kbb-more {
+    position: relative;
+    top: -2px;
+    padding: 0 8px;
+}
+
+// Override W3.CSS: use less padding on buttons
+.prev-next-links .w3-btn {
+    padding: 0 8px;
+}
+
+// Override W3.CSS: center adj post links on phones
+@media only screen and (max-width: 600px) {
+    #post-adj-post-links span {
+        text-align: center !important;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// front page
+// ----------------------------------------------------------------------------
+
+#kbb-logo img {
+    height: 120px;
+    width: auto;
+}
+
+#front-banner {
+    height: 250px;
+    background: {
+        image: url('/wp-content/themes/kbb/images/#{$banner-image-fn}');
+        size: cover;
+        position: $banner-image-position;
+    }
+}
+
+.front-book-excerpt img {
+    margin: 0 8px 8px 0;
+    width: 33%;
+}
+
+// ----------------------------------------------------------------------------
+// Custom Post Types (CPTs)
+// ----------------------------------------------------------------------------
+
+#cpt-list {
+    @include margin-padding(0);
+    list-style-type: none;
+    line-height: 1.2rem;
+    
+    li {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .cpt-image {
+        width: 40%;
+        padding-bottom: 16px;
+        
+        @media only screen and (max-width: 600px) {
+            padding-bottom: 8px;
+        }
+    }
+    
+    .cpt-text {
+        width: 60%;
+        padding-left: 8px;
+        
+        div {
+            font-size: 0.9em;
+        }
+    }
+    
+    h2 {
+        font: {
+            family: $font-stack-body;
+            size: 1em;
+            weight: 500;
+        }
+        margin: 0;
+    }
+}
+
+article.cpt-detail img {
+    margin: 0 8px 8px 0;
+    overflow: auto;
+    
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        margin: 0 0 8px 0;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// featured images
+// ----------------------------------------------------------------------------
+
+article.news img {
+    width: 50%;
+    height: auto;
+    margin: 1em 25%;
+    box-shadow: 2px 2px 5px #aaa;
+    
+    &.featured {
+        float: left;
+        overflow: auto;
+        margin: 0 8px 8px 0;
+        
+        & + p {
+            margin-top: 0;
+        }
+    }
+    
+    @media only screen and (max-width: 600px) {
+        float: none;
+        width: 100%;
+        margin: 1em 0;
+    }
+    
+}
+
+.thumb-wrapper {
+    float: left;
+    overflow: hidden;
+    margin: 0 8px 8px 0;
+    box-shadow: 2px 2px 5px #aaa;
+    
+    img.featured {
+      width: 100%;
+    }    
+}
+
+#front-latest .thumb-wrapper {
+    width: 150px;
+    max-height: 120px;
+}
+
+#news-index .thumb-wrapper {
+    width: 250px;
+    max-height: 200px; 
+}
+
+@media only screen and (max-width: 600px) {
+    img.featured {
+        margin-right: 0;
+    }
+    .thumb-wrapper {
+        float: none;
+        width: 100%;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// classes that content editor can use (experimental)
+// ----------------------------------------------------------------------------
+
+/*
+img.kbb-image {
+    float: right;
+    margin: 0 0 8px 8px;
+    box-shadow: 2px 2px 5px #aaa;
+}
+
+img.kbb-image-middle {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 2px 2px 5px #aaa;
+}
+*/
+
+img.kbb-image-right {
+    float: right;
+    margin: 0 0 8px 8px;
+}

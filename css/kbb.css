@@ -1,0 +1,214 @@
+@charset "UTF-8";
+/* File: kbb.scss */
+@import url(https://fonts.googleapis.com/css?family=Boogaloo%7CUbuntu:300,500);
+* {
+  box-sizing: border-box; }
+
+html {
+  font-size: 100%; }
+
+body {
+  font-family: Ubuntu, Verdana, sans-serif;
+  font-size: 100%;
+  font-weight: 300;
+  background-color: #aaa; }
+
+h1, h2, h3, h4 {
+  font-family: Boogaloo, Times, serif; }
+
+a {
+  color: #00685d;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+p a {
+  text-decoration: underline; }
+  p a:hover {
+    text-decoration: none; }
+
+blockquote {
+  padding: 0.01em 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #ddd;
+  border-left: 6px solid #009688; }
+  blockquote cite {
+    font-style: normal;
+    font-size: 90%;
+    color: #666; }
+    blockquote cite::before {
+      content: '— '; }
+
+#wrapper {
+  max-width: 1000px;
+  background-color: #eee; }
+
+footer {
+  font-size: smaller;
+  padding-top: 8px;
+  padding-bottom: 8px; }
+  footer h4 {
+    margin: 0;
+    padding: 0;
+    background-color: red; }
+  footer nav {
+    font-weight: normal; }
+    footer nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0; }
+
+#footer-credits span {
+  padding: 0 10px; }
+
+#social-media {
+  font-size: 2rem;
+  position: relative;
+  top: -8px; }
+  #social-media a {
+    margin-right: 5px; }
+
+#lang-toggle {
+  text-align: right; }
+  #lang-toggle * {
+    display: inline-block;
+    margin-left: 10px; }
+  #lang-toggle .selected {
+    font-weight: bold;
+    cursor: auto; }
+  #lang-toggle .w3-btn.selected:hover {
+    box-shadow: none; }
+
+#menu-primary {
+  padding: 0 16px 0 8px;
+  font-weight: 500;
+  font-size: 15px; }
+  #menu-primary a {
+    padding: 8px;
+    color: white; }
+    #menu-primary a:hover {
+      text-decoration: none;
+      color: white !important;
+      background-color: #00766a !important; }
+    #menu-primary a.selected {
+      background-color: #00685d; }
+
+.kbb-more {
+  position: relative;
+  top: -2px;
+  padding: 0 8px; }
+
+.prev-next-links .w3-btn {
+  padding: 0 8px; }
+
+@media only screen and (max-width: 600px) {
+  #post-adj-post-links span {
+    text-align: center !important; } }
+#kbb-logo img {
+  height: 120px;
+  width: auto; }
+
+#front-banner {
+  height: 250px;
+  background-image: url("/wp-content/themes/kbb/images/banner-ninos-1.jpg");
+  background-size: cover;
+  background-position: 50% 20%; }
+
+.front-book-excerpt img {
+  margin: 0 8px 8px 0;
+  width: 33%; }
+
+#cpt-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  line-height: 1.2rem; }
+  #cpt-list li {
+    display: flex;
+    flex-direction: row; }
+  #cpt-list .cpt-image {
+    width: 40%;
+    padding-bottom: 16px; }
+    @media only screen and (max-width: 600px) {
+      #cpt-list .cpt-image {
+        padding-bottom: 8px; } }
+  #cpt-list .cpt-text {
+    width: 60%;
+    padding-left: 8px; }
+    #cpt-list .cpt-text div {
+      font-size: 0.9em; }
+  #cpt-list h2 {
+    font-family: Ubuntu, Verdana, sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0; }
+
+article.cpt-detail img {
+  margin: 0 8px 8px 0;
+  overflow: auto; }
+  @media only screen and (max-width: 600px) {
+    article.cpt-detail img {
+      width: 100%;
+      margin: 0 0 8px 0; } }
+
+article.news img {
+  width: 50%;
+  height: auto;
+  margin: 1em 25%;
+  box-shadow: 2px 2px 5px #aaa; }
+  article.news img.featured {
+    float: left;
+    overflow: auto;
+    margin: 0 8px 8px 0; }
+    article.news img.featured + p {
+      margin-top: 0; }
+  @media only screen and (max-width: 600px) {
+    article.news img {
+      float: none;
+      width: 100%;
+      margin: 1em 0; } }
+
+.thumb-wrapper {
+  float: left;
+  overflow: hidden;
+  margin: 0 8px 8px 0;
+  box-shadow: 2px 2px 5px #aaa; }
+  .thumb-wrapper img.featured {
+    width: 100%; }
+
+#front-latest .thumb-wrapper {
+  width: 150px;
+  max-height: 120px; }
+
+#news-index .thumb-wrapper {
+  width: 250px;
+  max-height: 200px; }
+
+@media only screen and (max-width: 600px) {
+  img.featured {
+    margin-right: 0; }
+
+  .thumb-wrapper {
+    float: none;
+    width: 100%; } }
+/*
+img.kbb-image {
+    float: right;
+    margin: 0 0 8px 8px;
+    box-shadow: 2px 2px 5px #aaa;
+}
+
+img.kbb-image-middle {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 2px 2px 5px #aaa;
+}
+*/
+img.kbb-image-right {
+  float: right;
+  margin: 0 0 8px 8px; }
+
+/*# sourceMappingURL=kbb.css.map */
